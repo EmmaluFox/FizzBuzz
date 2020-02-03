@@ -15,7 +15,12 @@ namespace FizzBuzz
             {
                 int fizzRemainder = i % 3;
                 int buzzRemainder = i % 5;
-                if (fizzRemainder == 0)
+                if (fizzRemainder + buzzRemainder == 0)
+                {
+                    Console.WriteLine("FizzBuzz");
+                    
+                }
+                else if (fizzRemainder == 0)
                 {
                     Console.WriteLine("Fizz");
                 } else if(buzzRemainder == 0)
