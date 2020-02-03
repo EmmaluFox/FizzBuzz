@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace FizzBuzz
 {
@@ -6,24 +7,24 @@ namespace FizzBuzz
     {
         private static void Main(string[] args)
         {
-        PrintNums();
+            PrintNums();
         }
 
         private static void PrintNums()
         {
             string text = "";
-            for (int i = 1; i < 101; i++)
+            for (int i = 0; i <= 100; i++)
             {
-                
-                int[] divisors = {3, 5, 7, 11, 13, 17};
-                
-                if (testRemainder == 0)
+                int[] divisorsX = {3, 5, 7, 11, 13, 17};
+                int testRemainderX = i % divisorsX[i];
+                for (int ix = 0; ix < 6; ix++)
                 {
-                    for (int ix = 0; ix < 6; ix++)
+                    int[] divisors = {3, 5, 7, 11, 13, 17};
+                    int testRemainder = testRemainderX;
+                    string nameTemp = "";
+
+                    if (testRemainder == 0)
                     {
-                        int positionCount = ix;
-                        int testRemainder = divisors[positionCount]; 
-                        
                         string[] namesPrint = new string[6];
                         namesPrint[0] = "Fizz";
                         namesPrint[1] = "Buzz";
@@ -32,28 +33,53 @@ namespace FizzBuzz
                         namesPrint[4] = "Fezz";
                         namesPrint[5] = "X";
 
-                        string ConcatStr()
-                        {
-                            string nameTemp = "";
-                            if (i % divisors[ix] == 0)
-                            {
-                                string name = namesPrint[ix];
-                                nameTemp += name;
-                            }
+                        string textTemp = namesPrint[divisors[ix]];
+                        nameTemp += textTemp;
+                    }
+                    Console.WriteLine(nameTemp);
+                }
 
-                            return nameTemp;
+
+                static List<string> GetParts(int number)
+                {
+                    var parts = new List<string>();
+                    if (number % 11 == 0)
+
+                    {
+                        if (number % 13 == 0)
+                        {
+                            parts.Add("Fezz");
                         }
 
-                        text += ConcatStr();
-                        Console.WriteLine(text);
+                        parts.Add("Bong");
+                        return parts;
                     }
-                }
-                else {
 
-                        Console.WriteLine(i);
+                    if (number % 3 == 0)
+                    {
+                        parts.Add("Fizz");
+                    }
+
+                    if (number % 13 == 0)
+                    {
+                        parts.Add("Fezz");
+                    }
+
+                    if (number % 5 == 0)
+                    {
+                        parts.Add("Buzz");
+                    }
+
+                    if (number % 7 == 0)
+                    {
+                        parts.Add("Bang");
+                    }
+
+                    return parts;
+
                 }
             }
         }
-        }
-
     }
+}
+
