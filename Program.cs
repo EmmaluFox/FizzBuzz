@@ -6,7 +6,15 @@ namespace FizzBuzz
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+        PrintNums();
+        }
+
+        private static void PrintNums()
+        {
+            for (int i = 1; i < 101; i++)
+            {
+                Console.WriteLine(i);
+            }
         }
     }
 }
